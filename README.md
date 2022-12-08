@@ -1,4 +1,4 @@
-# Lesson 13 - Thursday 12/2/21
+# Lesson 12 - Thursday 12/8/22
 
 * In tonight's class, we consider the topic of censoring.
 * It is useful to begin by distinguishing between the concepts of censoring and truncation.
@@ -258,7 +258,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 * Notice that these results are very close to the values we observed in the original linear regression on the uncensored data (although with ever so slightly higher standard errors).
 * This model works because the data really did come from a normal, homoscedastic distribution.
-* Tobit models are quite sensitive to departures and will generally yield inconsistent (biased) estimates when assumptions are not met.
+* Tobit models are quite sensitive to departures from normality and will generally yield inconsistent (biased) estimates when assumptions are not met.
 * Here is an [article](https://www.jstor.org/stable/1914031?seq=1#metadata_info_tab_contents) that does a good job of laying out the key issues surrounding the Tobit model.
 * Contemporary statistical software usually has a canned procedure for estimating Tobit models. In R, we have to invoke the VGAM library:
 
