@@ -463,7 +463,7 @@ quantile(delta.md,0.975)
 
 ### Final Exam - Due by end of the day on Friday 12/16/22
 
-# Part 1: Logistic Regression
+Part 1: Logistic Regression
 
 ```r
 set.seed(4217)
