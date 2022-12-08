@@ -459,3 +459,85 @@ quantile(delta.md,0.975)
 ```
 
 * This gives us a 95% confidence interval for the difference between the two medians and since: (1) the censoring fraction is less than 50% for the 2 groups; and (2) the only censoring is on the right-hand side of the distribution of *y*, the medians and the difference between the medians is identified. The bootstrap gives us a principled way to measure the statistical significance of the difference between the 2 medians.
+
+
+### Final Exam - Due by end of the day on Friday 12/16/22
+
+# Part 1: Logistic Regression
+
+```r
+set.seed(4217)
+a <- 16+abs(rnorm(n=5722,mean=0,sd=22))
+m <- c(rep(1,4989),rep(0,5722-4989))
+u <- runif(n=5722,min=0,max=1)
+e <- log(u/(1-u))
+s <- -0.366302+0.665119*m-0.033536*a+0.007317*a*m+e
+y <- rep(0,5722)
+y[s>0] <- 1
+df <- data.frame(y,m,a)
+```
+
+1. Use this dataset to check for age differences (a) between males (m=1) and females (m=0).
+
+2. Estimate a logistic regression model for *y* with age as the only predictor variable. Interpret the logistic regression coefficient for age.
+
+3. Calculate the mean and median of age for the sample. Calculate and interpret the derivative of the logistic response function at the mean and median of age for the sample.
+
+4. Estimate a logistic regression model with main effects for age and sex. Interpret the logistic regression results in terms of the regression coefficients.
+
+5. Using the mean and median of age for the sample you calculated in problem 3 above, calculate the derivatives of the logistic response function separately for the males and females at those ages. 
+
+6. Identify the 95% confidence interval of the difference between the male and female derivatives at the sample mean and median ages. Comment on whether these 95% confidence intervals overlap with each other.
+
+7. Create a histogram and boxplot showing the sampling distribution of the difference between the male and female derivatives at the sample mean of age; carry out the same calculations for the sample median of age.
+
+Part 2: Binomial (bounded count) regression
+
+```r
+set.seed(031840942)
+x <- rnorm(n=1000,mean=3,sd=0.5)
+y <- rbinom(n=1000,size=10,prob=exp(x)/(1+exp(x)))
+df <- data.frame(x,y)
+```
+
+1. Estimate a properly specified binomial regression model to study the joint distribution of x and y.
+
+2. Use the statistical model results to calculate the predicted probability of an event occurring in a single Bernoulli trial (p) as a function of x. Create a plot showing how p is expected to vary across the range of x.
+
+2. Check on the adequacy of the statistical chi-square goodness of fit test.
+
+3. Calculate the expected value of y across the range of x. Create a plot showing the relationship we expect to see between x and E(y) based on the statistical model.
+
+Part 3: Unbounded count regression
+
+```r
+set.seed(03184092)
+x <- rnorm(n=1750,mean=0,sd=1)
+z <- ifelse((0.3*x+rnorm(n=1750,mean=5,sd=1))>5,1,0)
+w <- runif(n=1750,min=0,max=1)
+y <- rpois(n=1750,lambda=exp(-0.3+0.76*x+0.32*z+0.1*x*z+0.3*w))
+df <- data.frame(x,z,y)
+```
+
+1. Assess the inadequacy of the linear model.
+2. Measure overdispersion in the dataset.
+3. Estimate Poisson, geometric, and negative binomial regression looking at the covariates x and z and the outcome variable y.
+4. Study the fit of each of these distributions considering log-likelihood, AIC, and BIC metrics.
+5. Graph the predicted values of the rate parameter, lambda, as a function of the covariates.
+
+Part 4: Censored data
+
+```r
+set.seed(24786741)
+x <- rbinom(n=2371,size=1,p=0.5)
+y <- 3.2+0.8*x+rnorm(n=2371,mean=0,sd=1)
+df <- data.frame(x,y)
+```
+
+1. Estimate a linear regression of y on x.
+2. Set the censoring threshold to 5.5.
+3. Estimate a second linear regression based on the censored data.
+4. Use the VGAM library to estimate a tobit model using the censored data.
+5. Calculate the fraction of censored cases for each level of x.
+6. Check on the difference between the median of y across the 2 levels of x.
+7. Use the bootstrap to calculate a 95% confidence interval for the difference between the medians.
