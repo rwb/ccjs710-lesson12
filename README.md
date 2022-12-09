@@ -483,7 +483,7 @@ df <- data.frame(y,m,a)
 
 3. Calculate the mean and median of age for the sample. Calculate and interpret the derivative of the logistic response function at the mean and median of age for the sample.
 
-4. Estimate a logistic regression model with main effects for age and sex. Interpret the logistic regression results in terms of the regression coefficients.
+4. Estimate a logistic regression model with main effects for age and sex plus an interaction term with age multiplied by sex. 
 
 5. Using the mean and median of age for the sample you calculated in problem 3 above, calculate the derivatives of the logistic response function separately for the males and females at those ages. 
 
@@ -546,3 +546,5 @@ df <- data.frame(x,y)
 ### Exam-Related Issues
 
 1. 12/9/22 (9:33am): a student came to me and noted that the ages were not in integer format for part 1. I have slightly modified the data creation code to ensure that the ages are now in an integer format. 
+
+2. 12/9/22 (11:02am): a student pointed out that for Part 1, problem 4 the question originally pertained to a main-effects only model; in class (lesson 8), however, I had included an interaction term. I have now changed problem 4 to include both the main effects and the interaction term so the problem is similar to what we worked on previously.
