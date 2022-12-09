@@ -467,7 +467,7 @@ Part 1: Logistic Regression
 
 ```r
 set.seed(4217)
-a <- 16+abs(rnorm(n=5722,mean=0,sd=22))
+a <- round(16+abs(rnorm(n=5722,mean=0,sd=20)),0)
 m <- c(rep(1,4989),rep(0,5722-4989))
 u <- runif(n=5722,min=0,max=1)
 e <- log(u/(1-u))
@@ -541,3 +541,8 @@ df <- data.frame(x,y)
 5. Calculate the fraction of censored cases for each level of x.
 6. Check on the difference between the median of y across the 2 levels of x.
 7. Use the bootstrap to calculate a 95% confidence interval for the difference between the medians.
+
+
+### Exam-Related Issues
+
+1. 12/9/22 (9:33am): a student came to me and noted that the ages were not in integer format for part 1. I have slightly modified the data creation code to ensure that the ages are now in an integer format. 
