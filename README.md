@@ -495,9 +495,10 @@ Part 2: Binomial (bounded count) regression
 
 ```r
 set.seed(031840942)
-x <- rnorm(n=1000,mean=3,sd=0.5)
+x <- rnorm(n=1000,mean=0,sd=0.8)
 y <- rbinom(n=1000,size=10,prob=exp(x)/(1+exp(x)))
 df <- data.frame(x,y)
+table(y)
 ```
 
 1. Estimate a properly specified binomial regression model to study the joint distribution of x and y.
@@ -548,3 +549,5 @@ df <- data.frame(x,y)
 1. 12/9/22 (9:33am): a student came to me and noted that the ages were not in integer format for part 1. I have slightly modified the data creation code to ensure that the ages are now in an integer format. 
 
 2. 12/9/22 (11:02am): a student pointed out that for Part 1, problem 4 the question originally pertained to a main-effects only model; in class (lesson 8), however, I had included an interaction term. I have now changed problem 4 to include both the main effects and the interaction term so the problem is similar to what we worked on previously.
+
+3. 12/11/22 (8:42pm): a student pointed out that the original code for Part 2 produced a *y* distribution ranging from 5-10. This is confusing given that we did not work with an example like this in class. I've replaced this code with code that ensures that the full range of *y* is populated which is more similar to what we did in class. 
